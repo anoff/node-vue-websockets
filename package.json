@@ -1,0 +1,22 @@
+{
+  "name": "node-vue-websockets",
+  "version": "0.1.0",
+  "description": "sample for node, vue, websockets and material design",
+  "main": "server.js",
+  "scripts": {
+    "test": "standard"
+  },
+  "keywords": [
+    "node",
+    "vue",
+    "websockets"
+  ],
+  "author": "Andreas Offenhaeuser <https://anoff.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^11.0.1"
+  },
+  "dependencies": {
+    "server": "^1.0.18"
+  }
+}
