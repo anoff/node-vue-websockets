@@ -4,7 +4,8 @@
   "description": "sample for node, vue, websockets and material design",
   "main": "server.js",
   "scripts": {
-    "test": "standard"
+    "test": "standard",
+    "start": "nodemon -i myapp/ server.js"
   },
   "keywords": [
     "node",
@@ -14,6 +15,7 @@
   "author": "Andreas Offenhaeuser <https://anoff.io>",
   "license": "MIT",
   "devDependencies": {
+    "nodemon": "^1.17.3",
     "standard": "^11.0.1"
   },
   "dependencies": {

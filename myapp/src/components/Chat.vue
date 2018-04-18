@@ -7,14 +7,14 @@
         </div>
       </md-app-toolbar>
       <md-app-content>
-        <md-field :class="messageClass">
-          <label>Messages</label>
+        <md-field>
+          <label>Active users: {{ count }}</label>
           <md-textarea v-model="textarea" disabled></md-textarea>
         </md-field>
         <md-field>
           <label>Your message</label>
           <md-input v-model="message"></md-input>
-          <md-button class="md-primary md-raised">Submit</md-button>
+          <md-button class="md-primary md-raised" v-on:click="sendMessage()">Submit</md-button>
         </md-field>
       </md-app-content>
     </md-app>
@@ -23,10 +23,28 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Chat',
   data () {
     return {
-      textarea: "dummy text\nblup\ndummy text"
+      textarea: '',
+      message: '',
+      count: 0
+    }
+  }, sockets:{
+    connect () {
+      console.log('connected to chat server')
+    },
+    count (val) {
+      this.count = val.count
+      console.log(val)
+    },
+    message (data) {
+      this.textarea += data + '\n'
+    }
+  }, methods: {
+    sendMessage () {
+      this.$socket.emit('message', this.message)
+      this.message = ''
     }
   }
 }
